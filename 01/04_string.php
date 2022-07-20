@@ -4,5 +4,5 @@
 // string(3) "bob"
 // ここに1行コードを記述
 
-$name = "bob";
+$name = 'bob';
 var_dump($name);
