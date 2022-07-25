@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($judge) {
         // 03_judge_ment.phpにリダイレクト
         header('Location:03_judge_ment.php?judge_ment=' . $judge);
-        exit();
+        exit;
     }
 }
 ?>

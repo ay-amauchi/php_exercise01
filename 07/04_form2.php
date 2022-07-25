@@ -28,6 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $err_msgs[] = 'メールアドレスを入力して下さい';
     }
 }
+
+// エスケープ処理を行う関数
+function h($str)
+{
+    // ENT_QUOTES: シングルクオートとダブルクオートを共に変換する。
+    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+}
 ?>
 
 <!DOCTYPE html>
@@ -64,11 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <h3>購入するものを選択してください</h3>
         <select name="items">
-            <?php
-            foreach ($items as $item) {
-                echo '<option value="', $item, '">', $item, '</option>';
-            }
-            ?>
+            <?php foreach (array_keys($items) as $item) : ?>
+                <option value="<?= $item ?>"><?= $items[$item] ?></option>';
+            <?php endforeach; ?>
         </select>
 
         <br>
@@ -78,10 +83,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
     <?php if ($name && $tel && $email) : ?>
         <h3>以下の内容が送信されました。</h3>
-        <?= '氏名：' . "{$name}" ?><br>
-        <?= '電話番号：' . "{$tel}" ?><br>
-        <?= 'メールアドレス：' . "{$email}" ?><br>
-        <?= '購入するもの：' . "{$item_key}" ?>
+        <?= '氏名：' . h($name) ?><br>
+        <?= '電話番号：' . h($tel) ?><br>
+        <?= 'メールアドレス：' . h($email) ?><br>
+        <?= '購入するもの：' . h($item_key) ?>
     <?php endif; ?>
 </body>
 

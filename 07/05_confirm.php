@@ -29,7 +29,8 @@ foreach ($prices as $item => $price) {
 
 <body>
     <h2>ご注文ありがとうございます</h2>
-    <h2><? echo 'お支払い金額は、' . "{$price}" . '円です' ?></h2><br>
+    <h2>お支払い金額は、<?= $price ?>円です</h2>
     <a href="05_form2.php">戻る</a>
 </body>
+
 </html>
