@@ -30,15 +30,10 @@ $msg = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // コードを追記
     // POSTされたbody_temperatureを取得
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // コードを追記
-        // POSTされたbody_temperatureを取得
-        $body_temperature = $_POST['body_temperature'];
-    }
-
+    $body_temperature = $_POST['body_temperature'];
     $msg = create_message($body_temperature);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <?php if ($msg): ?>
+    <?php if ($msg) : ?>
         <h1><?= $msg ?></h1>
     <?php endif; ?>
     <h2>体温を入力してください</h2>
