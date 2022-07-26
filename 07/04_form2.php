@@ -86,7 +86,7 @@ function h($str)
         <?= '氏名：' . h($name) ?><br>
         <?= '電話番号：' . h($tel) ?><br>
         <?= 'メールアドレス：' . h($email) ?><br>
-        <?= '購入するもの：' . h($item_key) ?>
+        <?= '購入するもの：' . $items[$item_key] ?>
     <?php endif; ?>
 </body>
 
