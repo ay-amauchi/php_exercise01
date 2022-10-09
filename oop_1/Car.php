@@ -29,24 +29,24 @@ class Car
     }
 
 
-    public function setName()
+    public function setName($name)
     {
-        return $this->name;
+        $this->name = $name;
     }
-    public function setNumber()
+    public function setNumber($number)
     {
-        return $this->number;
+        $this->number = $number;
     }
 
-    public function setColor()
+    public function setColor($color)
     {
-        return $this->color;
+        $this->color = $color;
     }
 
     public function information()
     {
-        return "車の車種：" . $this->name . "\n" .
-            "車体番号" . $this->number . "\n" .
-            "カラー" . $this->color . "\n";
+        return "車の車種：" . $this->getName() . "\n" .
+            "車体番号：" . $this->getNumber() . "\n" .
+            "カラー：" . $this->getColor() . "\n";
     }
 }
